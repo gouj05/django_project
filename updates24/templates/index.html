@@ -1,0 +1,61 @@
+{% extends "base.html"%}
+{%block content%}
+<div class="container ">
+  <div id="carouselExampleDark" class="carousel slide shadow rounded overflow-hidden border border-danger border-2">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+
+    <div class="carousel-inner bg-white">
+    <div class="carousel-item active " data-bs-interval="1000">
+      <img src="static\rashtrapati.png" class="d-block w-100 object-fit-cover" alt="..." style="height: 65vh;">
+      <div class="carousel-caption d-none d-md-block text-danger bg-white p-0 border border-dark border-2">
+        <h5><u>Repulic Day Preperations</u></h5>
+        <p>republic day parade preps started at kartavya path.</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="static\roko.png" class="d-block w-100 object-fit-cover" alt="..." style="height: 65vh;">
+      <div class="carousel-caption d-none d-md-block text-danger bg-white p-0">
+        <h5><u>India V/S New Zealand</u></h5>
+        <p>India to play odi against New Zealand.</p>
+      </div>
+    </div>
+    <div class="carousel-item ">
+      <img src="static\whitehouse.png" class="d-block w-100 object-fit-cover" alt="..." style="height: 65vh;">
+      <div class="carousel-caption d-none d-md-block text-danger bg-white p-0">
+        <h5><u>US attacked Venezuala</u></h5>
+        <p>US attacked Venezuala...A sign for world war III?</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<u class="text-dark"><h1 class="p-2 mt-5 text-center bg-light text-dark border border-info border-2 rounded-pill">READ THE LATEST NEWS HEADLINES</h1></u>
+{%for i in news reversed%}
+<div class="card mt-3 border border-danger border-1" style="width:1200px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="media/{{i.image1}}" class="img-fluid rounded-start" style="width:325px; height:100%;" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body " >
+        <h5 class="card-title">{{i.title }}</h5>
+        <p class="card-text">{{i.detail |truncatechars:200}}</p>
+        <button class="bg-info">Read More</button>
+        <p class="card-text"><small class="text-body-secondary">{{i.published}}</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+{%endfor%} 
+{% endblock content %}

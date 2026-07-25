@@ -1,0 +1,22 @@
+{%extends "base.html"%}
+
+
+{% block content%}
+{%for i in search %}
+<div class="card pt-3 border border-danger border-1" style="width:1500px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="/media/{{i.image1}}" class="img-fluid rounded-start" style="width:325px; height:100%;" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body " >
+        <h5 class="card-title">{{i.title }}</h5>
+        <p class="card-text">{{i.detail |truncatechars:200}}</p>
+        <button class="bg-info">Read More</button>
+        <p class="card-text"><small class="text-body-secondary">{{i.published}}</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+{%endfor%} 
+{% endblock content %}
